@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
           {this.props.loading === true
-            ?null
+            ? null
             :<Dashboard/>
           }
       </div>
@@ -29,4 +29,4 @@ function mapStateToProps({ authedUser }){
   }
 }
 
-export default connect()(App)
+export default connect(mapStateToProps)(App)

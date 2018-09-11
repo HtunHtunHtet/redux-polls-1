@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-class Dashboard extends React.Component {
+class Dashboard extends Component {
     render(){
         return(
             <div>
@@ -11,25 +11,22 @@ class Dashboard extends React.Component {
     }
 }
 
-/*
 function mapStateToProps ({ authedUser, polls, users }) {
-
 
     const answers = users[authedUser].answers
 
     const answered  = answers.map((id) => polls[id])
         .sort((a,b) => b.timestamp - a.timestamp)
 
-    const unanswered  = Object.keys(polls)
-        .filter((id) => !answers.include(id))
+    const unanswered = Object.keys(polls)
+        .filter((id) => !answers.includes(id))
         .map((id) => polls[id])
-        .sort((a,b) => b.timestamp-a.timestamp)
+        .sort((a,b) => b.timestamp - a.timestamp)
 
     return {
         answered,
         unanswered
     }
 }
-*/
 
-export default connect()(Dashboard)
+export default connect(mapStateToProps)(Dashboard)
