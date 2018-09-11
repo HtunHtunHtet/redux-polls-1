@@ -2,10 +2,60 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 class Dashboard extends Component {
+    state = {
+        showAnswered : false
+    }
+
+    //toggle Componenet state
+    showUnanswered = () =>{
+        this.setState(() => ({
+            showAnswered: false
+        }))
+    }
+
+    showAnswered = () => {
+        this.setState(() => ({
+            showAnswered: true
+        }))
+    }
+
     render(){
+
+        const {showAnswered} = this.state
+        const {answered, unanswered} = this.props
+
+        console.log('props',this.props);
+        const list = showAnswered === true
+            ? answered
+            : unanswered
+
         return(
             <div>
-                Dashboard
+                <div className='dashboard-toggle'>
+                    <button
+                        style ={{textDecoration: showAnswered === false ? 'underline' :null}}
+                        onClick={this.showUnanswered}
+                    >
+                        Unanswered
+
+                    </button>
+                    <span> | </span>
+
+                    <button
+                        style ={{textDecoration: showAnswered === true ? 'underline' :null}}
+                        onClick={this.showAnswered}
+                    >
+                        Answered
+                    </button>
+                </div>
+
+                <ul className='dashboard-list'>
+                    {list.map((poll) =>(
+                        <li key={poll.id}>
+                            {poll.question}
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }
