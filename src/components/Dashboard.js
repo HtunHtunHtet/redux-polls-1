@@ -23,8 +23,6 @@ class Dashboard extends Component {
 
         const {showAnswered} = this.state
         const {answered, unanswered} = this.props
-
-        console.log('props',this.props);
         const list = showAnswered === true
             ? answered
             : unanswered
