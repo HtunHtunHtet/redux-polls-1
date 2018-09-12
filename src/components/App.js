@@ -7,6 +7,7 @@ import LoadingBar from 'react-redux-loading'
 import Dashboard from './Dashboard'
 import Leaderboard from './Leadearboard'
 import AddPoll from './AddPoll'
+import Poll from "./Poll";
 
 class App extends Component {
   componentDidMount(){
@@ -14,12 +15,13 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div>
           <LoadingBar/>
           {this.props.loading === true
             ? null
-              :<AddPoll/> //<Leaderboard/> //<Dashboard/>
+              : <Poll match={{params: {id: 'xj352vofupe1dqz9emx13r'}}}/>}
           }
       </div>
     )
