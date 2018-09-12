@@ -11,7 +11,7 @@ export default function polls (state ={} ,action ){
         case ADD_POLL:
             return {
                 ...state,
-                [action.poll.id]: action.poll, //add neww polls
+                [action.poll.id]: action.poll, //update polls
             }
 
         case ADD_ANSWER:
