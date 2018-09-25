@@ -36,7 +36,8 @@ class AddPoll extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        //Redirect To
+        //Redirect To /
+        this.props.history.push('/')
         this.props.dispatch(handleAddPoll(this.state))
     }
 
